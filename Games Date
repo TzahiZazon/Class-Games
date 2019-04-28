@@ -1,0 +1,27 @@
+    class GamesData
+    {
+        // תכונה: שרשרת של משחקים
+        private Node<Game> games;
+
+        // פעולה בונה: יצירת אוסף משחקים ריק
+        public void GameData()
+        {
+            this.games = null;
+        }
+  
+        // טענת כניסה: הפעולה מקבלת גיל מנימלי של שחקן
+        // טענת יציאה: הפעולה מחזירה הפנייה לשרשרת של חוליות כאשר בכל חוליה יש קוד של משחק מתאים (בעל 4 כוכבים וגיל ומתאים)
+        public Node<string> MatchedGames(int age)
+        {
+            Node<string> Matched=null;
+            Node<Game> p = this.games; // התחלת שרשרת
+            while (p != null)
+            {
+                if(p.GetValue().GetGameMinAge()< age && (p.GetValue().GameRating() == "****"){
+                    Matched = new Node<string>(p.GetValue().GetGameCode(), Matched);
+                }
+                p = p.GetNext();
+            }
+            return Matched;
+        }
+    }
