@@ -33,7 +33,7 @@
         {
             this.GameMinAge = newGameMinAge;
         }
-        // הפעולה מעדכנת מספר עותקים של משחק
+        // הפעולה מעדכנת מספר ותקים של משחק
         public void SetGameCopies(int newGameCopies)
         {
             this.GameCopies = newGameCopies;
