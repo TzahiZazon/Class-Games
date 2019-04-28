@@ -1,0 +1,106 @@
+    class Game
+    {
+        private string GameCode; // קוד המשחק
+        private string GameName; // שם המשחק
+        private int GameMinAge; // גיל מינימלי לשחק במשחק
+        private int GameCopies; // מספר עותקים למשחק
+        private double GamePlayed; // מספר פעמים שמשחק שוחק
+        private int GameErrors; // מספר הפעמים שהפסיקו לשחק במשחק בעקבות תקלה
+
+        // טענת כניסה: הפעולה מקבלת מידע על משחק
+        // טענת יציאה: הפעולה אינה מחזירה דבר, היא בונה משחק מסוג משחק
+        public Game(string GameCode, string GameName, int GameMinAge, int GameCopies, double GamePlayed, int GameErrors)
+        {
+            this.GameCode = GameCode;
+            this.GameName = GameName;
+            this.GameMinAge = GameMinAge;
+            this.GameCopies = GameCopies;
+            this.GamePlayed = GamePlayed;
+            this.GameErrors = GameErrors;
+        }
+        // הפעולה מעדכנת קוד משחק
+        public void SetGameCode(string newGameCode)
+        {
+            this.GameCode = newGameCode;
+        }
+        // הפעולה מעדכנת שם משחק
+        public void SetGameName(string newGameName)
+        {
+            this.GameName = newGameName;
+        }
+        // הפעולה מעדכנת גיל מינימלי של משחק
+        public void SetGameMinAge(int newGameMinAge)
+        {
+            this.GameMinAge = newGameMinAge;
+        }
+        // הפעולה מעדכנת מספר עותקים של משחק
+        public void SetGameCopies(int newGameCopies)
+        {
+            this.GameCopies = newGameCopies;
+        }
+        // הפעולה מעדכנת את מספר פעמים ששיחקו במשחק
+        public void SetGamePlayed(double newGamePlayed)
+        {
+            this.GamePlayed = newGamePlayed;
+        }
+        // הפעולה מעדכנת את מספר הפעמים שהפסיקו לשחק במשחק בגלל תקלה
+        public void SetGameErrors(int newGameErrors)
+        {
+            this.GameErrors = newGameErrors;
+        }
+        // הפעולה מחזירה את קוד המשחק
+        public string GetGameCode()
+        {
+            return this.GameCode;
+        }
+        // הפעולה מחזירה את שם המשחק
+        public string GetGameName()
+        {
+            return this.GameName;
+        }
+        // הפעולה מחזירה את הגיל המינימלי לשחק המשחק
+        public int GetGameMinAge()
+        {
+            return this.GameMinAge;
+        }
+        // הפעולה מחזירה את מספק העותקים שנמכרו של המשחק
+        public int GetGameCopies()
+        {
+            return this.GameCopies;
+        }
+        // הפעולה מחזירה את מספר הפעמים שהמשחק שוחק המשחק
+        public double GetGamePlayed()
+        {
+            return this.GamePlayed;
+        }
+        // הפעולה מחזירה את מספר הפעמים שהמשחק הופסק בעקבות תקלה
+        public int GetGameErrors()
+        {
+            return this.GameErrors;
+        }
+
+        //טענת כניסה: הפעולה מקבלת משחק
+        // טענת יציאה: הפעולה מחזירה את הרייטינג של המשחק
+        public string GameRating()
+        {
+            string rating = "*";
+            if (this.GetGameErrors() < this.GetGamePlayed() * 5 / 100)
+            {
+                rating = "****";
+            }
+            if (this.GetGameErrors() == this.GetGamePlayed() * 5 / 100 || this.GetGameErrors() < this.GetGamePlayed() * 0.25)
+            {
+                rating = "***";
+            }
+            if (this.GetGameErrors() >= this.GetGamePlayed() * 0.25 || this.GetGameErrors() < this.GetGamePlayed() * 0.5)
+            {
+                rating = "**";
+            }
+            if (this.GetGameErrors() >= this.GetGamePlayed() * 0.5)
+            {
+                rating = "*";
+            }
+            return rating;
+        }
+
+    }
