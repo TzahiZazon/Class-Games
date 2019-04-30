@@ -17,7 +17,7 @@
             Node<Game> p = this.games; // התחלת שרשרת
             while (p != null)
             {
-                if(p.GetValue().GetGameMinAge()< age && (p.GetValue().GameRating() == "****")){
+                if(p.GetValue().GetGameMinAge()<= age && (p.GetValue().GameRating() == "****")){
                     Matched = new Node<string>(p.GetValue().GetGameCode(), Matched);
                 }
                 p = p.GetNext();
